@@ -1,0 +1,1142 @@
+/* ======== GLOBAL STYLES & VARIABLES ======== */
+html {
+    scroll-behavior: smooth;
+}
+:root {
+    --primary-color: #070757;
+    --secondary-color: #e4e0b2;
+    --accent-color: #e3062a;
+    --brush-color: #E0D6FF; /* Màu vệt sơn tím nhạt */
+    --bg-light: #ffffff;
+    --bg-grey: #f8f9fa;
+    --text-light: #ffffff;
+    --text-dark: #333333;
+    --text-muted: #6c757d;
+    --shadow: 0 5px 15px rgba(0,0,0,0.1);
+    --font-family: 'Poppins', sans-serif;
+    --divider-color: #e5e7eb;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-family); color: var(--text-dark); line-height: 1.7; background: var(--bg-light); }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+h1, h2, h3, h4 { font-weight: 600; color: var(--primary-color); line-height: 1.3; }
+h1 { font-size: 3rem; font-weight: 700; }
+h2 { font-size: 2.5rem; font-weight: 700; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.1rem; color: var(--primary-color); margin-bottom: 0.75rem; font-weight: 600; }
+p { margin-bottom: 1rem; font-family: 'Poppins', sans-serif; font-weight: 400; font-size: 0.95rem; color: var(--text-dark); }
+a { text-decoration: none; color: var(--accent-color); }
+ul { list-style: none; }
+section { padding: 6rem 0; }
+.btn { display: inline-block; padding: 0.8rem 2rem; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; border: none; cursor: pointer; }
+.btn-primary { background: var(--accent-color); color: var(--text-light); }
+.btn-primary:hover { background: #c00524; transform: translateY(-3px); }
+
+/* ======== HEADER & NAVIGATION ======== */
+header { background: var(--text-light); box-shadow: var(--shadow); position: sticky; top: 0; z-index: 1000; }
+.nav-container { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+.logo { font-size: 1.5rem; font-weight: 700; color: var(--primary-color); }
+.main-nav ul { display: flex; align-items: center; gap: 2rem; }
+.main-nav a { color: var(--text-dark); font-weight: 500; transition: color 0.3s ease; }
+.main-nav a:hover { color: var(--accent-color); }
+/* Trong file style.css, tìm và thay thế đoạn code của .btn-contact */
+
+/* Code CSS cho nút Contact - Kiểu viền đỏ */
+
+/* Trạng thái mặc định: Viền đỏ, nền trắng, chữ đỏ */
+.btn-contact {
+    background-color: transparent; /* Nền trong suốt */
+    color: var(--accent-color); /* Chữ màu đỏ */
+    border: 2px solid var(--accent-color); /* Viền màu đỏ, dày 2px */
+    padding: 0.6rem 1.8rem;
+    border-radius: 50px;
+    font-weight: 500;
+    text-decoration: none;
+    box-shadow: none; /* Bỏ bóng đổ ở trạng thái mặc định */
+    transition: all 0.3s ease;
+}
+
+/* Trạng thái khi di chuột: Nền đỏ, chữ trắng */
+.main-nav a.btn-contact:hover {
+    background-color: var(--accent-color); /* Nền đổi thành màu đỏ */
+    color: var(--text-light); /* Chữ đổi thành màu trắng */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(227, 6, 42, 0.3); /* Thêm bóng đổ nhẹ khi hover */
+}
+.logo img {
+    height: 35px; /* Bạn có thể điều chỉnh chiều cao này cho phù hợp */
+    width: auto;
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ======== HERO SECTION (REVISED VỚI 2 LỚP BACKGROUND) ======== */
+
+.main-banner {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Lớp background dưới cùng (chuyển động) */
+.main-banner::before {
+    content: '';
+    position: absolute;
+    top: -5%;
+    left: -5%;
+    width: 110%;
+    height: 110%;
+    background-image: url('images/banners1.png'); /* Đảm bảo ảnh này có độ phân giải cao */
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    animation: floatBackground 1000s ease-in-out infinite;
+  
+    /* --- THÊM DÒNG NÀY ĐỂ TĂNG ĐỘ NÉT --- */
+    image-rendering: -webkit-optimize-contrast; /* Dành cho trình duyệt Webkit (Chrome, Safari) */
+    image-rendering: crisp-edges;               /* Chuẩn chung */
+  }
+  
+  /* --- CSS RESPONSIVE CHO BANNER --- */
+  @media (max-width: 768px) {
+    .main-banner::before {
+      /* Đặt lại kích thước và vị trí cho vừa với khung chứa */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+
+
+
+/* (Các class CSS khác như .hero-main-group, .speech-bubble... giữ nguyên như cũ) */
+/* Nhóm chính chứa nhân vật và nội dung */
+.hero-main-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0; 
+    position: relative;
+    z-index: 2;
+}
+
+/* Ảnh nhân vật */
+.person-photo {
+    height: 80vh;
+    flex-shrink: 0; 
+}
+.person-photo img {
+    height: 120%;
+    width: auto;
+}
+
+/* Khối nội dung chính */
+.main-content {
+    transform: translateX(-50px) translateY(-80px);
+}
+
+/* --- Chỉnh sửa cho "mềm mại" hơn --- */
+.speech-bubble {
+    /* Sử dụng màu trắng trong suốt để hòa vào background */
+    background-color: rgba(255, 255, 255, 0.75); 
+    /* Thêm hiệu ứng mờ kính để chữ dễ đọc hơn */
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px); /* Hỗ trợ trình duyệt Safari */
+
+    /* Đổi màu chữ thành màu hồng đậm để nổi bật và hợp tông */
+    color: #E57399; 
+    padding: 1.5rem 2rem;
+    border-radius: 30px; /* Bo tròn nhiều hơn */
+    font-size: 1.1rem;
+    line-height: 1.6;
+    /* Tạo bóng đổ nhẹ nhàng hơn */
+    box-shadow: 0 5px 20px rgba(150, 100, 120, 0.2);
+    white-space: nowrap;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+}
+.speech-bubble p {
+    margin: 0;
+    /* Kế thừa màu từ parent */
+    color: inherit; 
+    font-weight: 500; /* Làm chữ đậm hơn một chút để dễ đọc */
+}
+
+.action-buttons {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+/* Đổi tên class từ .btn-red thành .btn-custom để linh hoạt hơn */
+.btn.btn-custom {
+    background-color: #fe7b8f; /* Màu hồng nhạt (LightPink) */
+    color: #fff;
+    padding: 0.8rem 2.2rem;
+    border-radius: 50px; /* Giữ bo tròn */
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none; /* Bỏ border */
+    box-shadow: 0 4px 15px rgba(227, 6, 42, 0.2);
+}
+.btn.btn-custom:hover {
+    transform: translateY(-4px); /* Hiệu ứng nổi lên rõ hơn */
+    background-color: #ff92a4; /* Sáng hơn một chút khi hover */
+    box-shadow: 0 8px 20px rgba(227, 6, 42, 0.3);
+}
+
+/* Chữ Welcome (Giữ nguyên) */
+.welcome-title-overlay {
+    position: absolute;
+    top: 80%;
+    right: 5%;
+    z-index: 3;
+    width: auto;
+    pointer-events: none;
+}
+#home .welcome-title-overlay h1 {
+    font-size: 4.2rem;
+    font-weight: 800;
+    color: #e1e65e;
+    line-height: 1.1;
+    text-shadow: 3px 3px 0px #ffffff, 4px 4px 5px rgba(0,0,0,0.1);
+    transform: rotate(-10deg);
+    text-align: center;
+}
+
+
+/* Xóa các class .deco-element và .leaf vì không còn sử dụng */
+
+/* Keyframe cho background chuyển động nhẹ nhàng */
+@keyframes floatBackground {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px); /* Di chuyển lên một chút */
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+
+
+
+
+
+
+
+
+/* Container chứa các icon */
+.tool-icons {
+    display: flex;
+    justify-content: space-between; /* Đẩy icon đầu và cuối ra 2 mép */
+    align-items: center;
+    margin-top: 1.5rem;
+    width: 100%; /* << Quan trọng: Cho khu vực này rộng hết cỡ cột của nó */
+}
+
+/* Từng icon bên trong */
+.tool-icons img {
+    height: 65px !important;  /* << Tăng kích thước icon lên một chút từ 45px */
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(45, 55, 86, 0.15);
+    cursor: pointer;
+    
+    /* Giữ các thuộc tính sửa lỗi từ lần trước */
+    opacity: 1 !important;
+    filter: none !important;
+    transition: all 0.3s ease-out !important; 
+}
+
+/* Giữ nguyên hiệu ứng hover */
+.tool-icons img:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(45, 55, 86, 0.25);
+}
+
+/* Responsive cho bố cục mới */
+@media (max-width: 992px) {
+    .hero-main-group {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .person-photo {
+        height: 60vh;
+    }
+    .main-content {
+        transform: translateX(0);
+        order: 2; /* Đưa nội dung xuống dưới ảnh */
+    }
+    .welcome-title-overlay h1 {
+        font-size: 3rem;
+    }
+}
+/* Chữ Welcome (đã chỉnh sửa vị trí và độ nghiêng) */
+.welcome-title-overlay {
+    position: absolute;
+    bottom: 20%;             /* Đặt vị trí theo phía dưới */
+    right: 5%;               /* Đặt vị trí theo phía phải */
+    z-index: 3;              
+    text-align: right;       /* Căn lề phải cho text */
+    width: auto;             /* Bỏ width 100% để khối co lại theo chữ */
+    pointer-events: none;    /* Giúp có thể click xuyên qua chữ vào các phần tử bên dưới nếu cần */
+}
+
+.welcome-title-overlay h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    line-height: 1.2;
+    text-shadow: 3px 3px 0px rgba(255, 255, 255, 0.7);
+    transform: rotate(-7deg); /* Thêm hiệu ứng nghiêng -7 độ */
+}
+
+/* ======== ABOUT ME SECTION (FINAL CORRECTED STRUCTURE V2) ======== */
+.about-section {
+    background: var(--bg-light);
+}
+/* Phần 1: Giới thiệu chung */
+
+.about-intro-area {
+    display: grid;
+    /* SỬA LẠI DÒNG NÀY: Cột chữ tự co giãn | Cột ảnh 400px */
+    grid-template-columns: 1fr 400px; 
+    gap: 3rem;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+.about-intro-image {
+    position: relative;
+}
+/* Hiệu ứng vệt sơn */
+.about-intro-image::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 110%;
+    height: 110%;
+    background-color: var(--primary-color);
+    opacity: 0.8;
+    z-index: 1;
+    clip-path: polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%);
+}
+    .about-intro-image img {
+        width: 100%;
+        position: relative;
+        z-index: 2;
+        border-radius: 10px;
+    }
+.about-intro-text h2 {
+    margin-bottom: 1rem;
+}
+.about-intro-text p {
+    color: var(--text-muted);
+}
+/* Trong file style.css */
+
+/* Phần 2: Chi tiết kỹ năng & Media */
+
+.about-details-area {
+    display: grid;
+    /* Thay đổi ở dòng này: cho cột video nhỏ hơn (1fr) và cột chữ lớn hơn (1.5fr) */
+    grid-template-columns: 1.5fr 1fr; 
+    gap: 4rem; /* Tăng khoảng cách một chút cho thoáng hơn */
+    align-items: center; /* Căn giữa 2 cột theo chiều dọc cho cân đối hơn */
+    padding-top: 3rem;
+}
+
+.skills-column {
+    /* Cột này chứa tất cả các nhóm kỹ năng */
+}
+
+.media-column {
+    /* Cột này chứa video hoặc ảnh */
+}
+
+.media-column video, .media-column img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+/*  */
+.skill-group {
+    margin-bottom: 2rem;
+}
+.skill-group:last-child {
+    margin-bottom: 0;
+}
+p.skill-item {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0.25rem 0;
+}
+/* Code CSS đồng nhất cho tất cả các thẻ kỹ năng */
+
+.skill-tags, .gpa-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem; /* Khoảng cách giữa các nút */
+    margin-top: 0.5rem;
+}
+
+/* Style chung cho TẤT CẢ các thẻ */
+.skill-tag {
+    background-color: transparent; /* Nền trong suốt */
+    color: var(--accent-color); /* Chữ màu đỏ */
+    border: 1.5px solid var(--accent-color); /* Viền màu đỏ */
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+/* Hiệu ứng chung khi di chuột */
+.skill-tag:hover {
+    background-color: var(--accent-color); /* Nền đổi thành màu đỏ */
+    color: var(--text-light); /* Chữ đổi thành màu trắng */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(227, 6, 42, 0.2); /* Thêm bóng đổ nhẹ */
+}
+.tool-icons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+.tool-icons img {
+    height: 40px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+.tool-icons img:hover {
+    opacity: 1;
+}
+.media-column img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+/* Thêm vào file style.css để video YouTube co giãn */
+.media-column iframe {
+    width: 100%; /* Chiếm hết chiều rộng cột */
+    height: auto;
+    aspect-ratio: 16 / 9; /* Giữ tỷ lệ 16:9 cho video */
+    border-radius: 15px; /* Bo góc cho đẹp (tùy chọn) */
+    border: none; /* Bỏ viền mặc định */
+}
+/* ======== PORTFOLIO SECTION ======== */
+
+
+.section-title {
+    text-align: center;      /* << Căn giữa tiêu đề */
+    margin-bottom: 3rem;     /* << Tạo khoảng cách với nội dung bên dưới */
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+/* Container chứa tiêu đề và icon */
+.heading-wrapper {
+    display: flex; /* Dùng Flexbox để căn chỉnh các item trên một hàng */
+    align-items: center; /* Căn giữa các item theo chiều dọc */
+    gap: 12px; /* Tạo khoảng cách 12px giữa tiêu đề và icon */
+  }
+  
+  /* Tùy chỉnh cho tiêu đề (nếu cần) */
+  .content-heading {
+    margin: 0; /* Bỏ margin mặc định của h2 để căn chỉnh đẹp hơn */
+  }
+  
+  /* Định dạng cho icon */
+  .social-icon i {
+    margin-top: -12px;
+    font-size: 28px; /* Kích thước icon */
+    color: #1877F2; /* Màu xanh đặc trưng của Facebook */
+    transition: transform 0.2s ease-in-out; /* Hiệu ứng chuyển động mượt */
+  }
+  
+  /* Hiệu ứng khi di chuột vào icon */
+  .social-icon:hover i {
+    transform: scale(1.1); /* Phóng to nhẹ icon */
+  }
+
+.portfolio {
+   
+    background-image: url(images/xanhhh.jpg);
+     background-size: cover;          /* Phóng to/thu nhỏ để ảnh lấp đầy khu vực */
+    background-position: center;     /* Căn ảnh ra giữa */
+    background-repeat: no-repeat;    /* Không cho ảnh bị lặp lại */
+    
+    /* 3. (Tùy chọn) Hiệu ứng Parallax rất đẹp */
+    background-attachment: fixed;    
+
+    padding: 6rem 0;
+}
+
+.portfolio-grid {
+    display: grid;
+    /* Tự động chia cột, mỗi cột rộng tối thiểu 320px */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem; /* Khoảng cách giữa các dự án */
+}
+
+.portfolio-item {
+    display: block; /* Giúp thẻ <a> hoạt động như một khối */
+    position: relative; /* Nền tảng cho các lớp con bên trong */
+    border-radius: 15px; /* Bo góc cho card */
+    overflow: hidden; /* << QUAN TRỌNG: Ẩn mọi thứ bị tràn ra ngoài khung */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    color: white; /* Màu chữ cho lớp phủ */
+    aspect-ratio: 4 / 3; /* Giữ tỷ lệ khung hình cho card */
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* << QUAN TRỌNG: Ảnh sẽ tự lấp đầy khung mà không bị méo */
+    transition: transform 0.4s ease; /* Hiệu ứng zoom mượt mà */
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(7, 7, 87, 0.9), rgba(7, 7, 87, 0.3)); /* Lớp phủ màu xanh đậm trong suốt */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Đẩy nội dung xuống dưới */
+    align-items: flex-start; /* Căn nội dung qua trái */
+    text-align: left;
+    padding: 2rem;
+    
+    opacity: 0; /* Mặc định ẩn lớp phủ đi */
+    transition: opacity 0.4s ease;
+}
+    
+/* Hiệu ứng khi di chuột vào card */
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1; /* Hiện lớp phủ ra */
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1); /* Phóng to ảnh nền một chút */
+}
+
+.portfolio-overlay h3 {
+    color: white;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.portfolio-overlay p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+}
+
+.portfolio-overlay span {
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ... các style khác giữ nguyên ... */
+
+/* ======== SERVICES (THE CARDS) SECTION (Đã sửa lại 3 cột) ======== */
+
+.services-section {
+    background-color: var(--bg-light);
+    padding: 6rem 0;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-top: -2.5rem;
+    margin-bottom: 3rem;
+    letter-spacing: 1px;
+}
+
+/* THAY ĐỔI CHÍNH NẰM Ở ĐÂY */
+.cards-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    
+    gap: 2rem !important;
+}
+
+.flip-card {
+    background-color: transparent;
+    height: 320px;
+    perspective: 1500px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+}
+
+.flip-card-front {
+    background-color: #ffffff;
+    border: 1px solid var(--divider-color);
+    color: var(--text-muted);
+    transition: all 0.4s ease;
+}
+
+.card-icon {
+    width: 60px;
+    margin-bottom: 1.5rem;
+    transition: transform 0.4s ease;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.flip-card:hover .card-icon {
+    transform: scale(1.1);
+}
+
+.flip-card-back {
+    background: var(--primary-color);
+    color: var(--text-light);
+    transform: rotateY(180deg);
+}
+
+.flip-card-back h3 {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+/* ======== RESPONSIVE DESIGN ======== */
+@media (max-width: 992px) {
+    .about-intro-area, .about-details-area {
+        grid-template-columns: 1fr;
+    }
+    .media-column {
+        margin-top: 2rem;
+    }
+    .hero-container { grid-template-columns: 1fr; text-align: center; }
+    .hero-image { order: -1; margin-bottom: 2rem; }
+    .services { background: var(--primary-color); }
+    .services-title { max-width: 100%; padding-right: 0; text-align: center; }
+}
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    .main-nav { display: none; }
+    .about-intro-area { text-align: center; }
+    .about-intro-image { max-width: 300px; margin: 0 auto 2rem auto; }
+    .footer-container { flex-direction: column; gap: 1rem; }
+}
+/* ... Thêm các style còn lại của bạn từ phiên bản trước nếu cần ... */
+.services-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+.services-title { max-width: 50%; padding-right: 2rem; margin-bottom: 3rem; }
+.services-title h2 { color: var(--text-light); text-align: left; font-size: 2.5rem; }
+.services-title p { color: #d1cda2; }
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+.flip-card { background-color: transparent; height: 300px; perspective: 1500px; }
+.flip-card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d; box-shadow: var(--shadow); border-radius: 15px; }
+.flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+.flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; border-radius: 15px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; text-align: center; }
+.flip-card-front { background: var(--text-light); }
+.flip-card-front i { font-size: 3rem; color: var(--accent-color); margin-bottom: 1rem; }
+.flip-card-back { background: var(--accent-color); color: var(--text-light); transform: rotateY(180deg); }
+.flip-card-back h3 { color: var(--text-light); }
+.contact { background: var(--bg-grey); text-align: center; }
+.contact-container h2 { font-size: 2.5rem; }
+.contact-form { max-width: 700px; margin: 2rem auto 0; display: flex; flex-direction: column; gap: 1rem; }
+.contact-form input, .contact-form textarea { width: 100%; padding: 1rem; border: 1px solid #ddd; border-radius: 5px; font-family: var(--font-family); }
+.contact-form button { align-self: center; }
+footer { background: var(--primary-color); color: var(--text-light); padding: 2rem 0; }
+.footer-container { display: flex; justify-content: space-between; align-items: center; }
+.social-links a { color: var(--text-light); margin-left: 1.5rem; font-size: 1.2rem; transition: color 0.3s ease; }
+.social-links a:hover { color: var(--accent-color); }
+.footer-container p{
+ color: #f5f5f5;
+}
+/* ======== CSS MỚI CHO TRANG CHI TIẾT DỰ ÁN ======== */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Project Detail Page Styling */
+/* Custom Properties (đảm bảo bạn đã có các biến này ở đầu file CSS của mình) */
+:root {
+    --primary-color: #000080; /* Màu xanh đậm */
+    --accent-color: #E3062A;  /* Màu đỏ của nút LIKE THIS */
+    --bg-light: #FFFFFF;
+    --bg-grey: #F8F8F8;
+    --text-dark: #333333;
+    --text-muted: #666666;
+    --text-light: #FFFFFF;
+    --divider-color: #EEEEEE;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --brush-color: #E0D6FF; /* Màu tím nhạt cho bubble, nếu có */
+}
+
+
+/* Project Detail Page Styling */
+.project-detail-page {
+    padding: 4rem 0;
+    background-color: var(--bg-light);
+}
+
+.project-detail-container {
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-start; 
+    flex-wrap: wrap; 
+    max-width: 900px; /* Điều chỉnh để nội dung gọn gàng hơn, giống bài viết */
+    margin: 0 auto; 
+    padding: 0 2rem; 
+}
+
+/* Cột nội dung chính của dự án */
+.project-main-content-area {
+    flex: 1; 
+    min-width: 100%; 
+    display: flex;
+    flex-direction: column; 
+    gap: 2.5rem; /* Khoảng cách mặc định giữa các khối nội dung */
+}
+
+/* Kiểu dáng chung cho các khối nội dung */
+.content-block {
+    /* Mặc định không cần margin hay padding riêng, do gap đã xử lý khoảng cách giữa các block */
+}
+
+/* Căn giữa text cho các block cụ thể */
+.text-center {
+    text-align: center;
+}
+
+/* Kiểu dáng cho khối tiêu đề dự án "Care-A-Van" */
+.project-name {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.project-role {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.project-summary {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-dark);
+    max-width: 700px; /* Giới hạn chiều rộng văn bản để dễ đọc */
+    margin: 0 auto; /* Canh giữa đoạn văn bản */
+}
+
+/* Tiêu đề "About the Project" */
+.content-heading {
+    font-size: 2rem;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--divider-color);
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 0; /* Khoảng cách sẽ do gap của .project-main-content-area quản lý */
+}
+
+/* Kiểu dáng cho khối văn bản */
+.text-content {
+    /* QUAN TRỌNG: Thêm overflow: hidden để đảm bảo phần tử cha chứa các float bên trong nó */
+    overflow: hidden; 
+}
+
+.text-content p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin-top: 0; /* Loại bỏ margin-top mặc định của p để văn bản bám sát ảnh float */
+    margin-bottom: 1rem; 
+}
+
+.text-content p strong {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.text-content p em {
+    font-style: italic;
+    color: var(--text-muted);
+}
+
+/* Kiểu dáng chung cho hình ảnh bên trong các khối văn bản (khi float) */
+.image-with-caption {
+    background-color: var(--bg-grey); /* Background nhẹ để làm nổi bật khối ảnh */
+    padding: 0.8rem; /* Padding xung quanh ảnh và chú thích */
+    border-radius: 8px;
+    box-shadow: var(--shadow); /* Shadow nhẹ */
+    box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước tổng */
+    margin-bottom: 1rem; /* Khoảng cách dưới khối ảnh float */
+}
+
+.image-with-caption .project-image {
+    width: 100%; /* Ảnh sẽ chiếm 100% của div cha image-with-caption */
+    height: auto;
+    display: block;
+    border-radius: 4px; /* Bo góc nhẹ cho ảnh bên trong khung */
+    box-shadow: var(--shadow); /* Shadow cho ảnh bên trong khung */
+    margin-bottom: 0.5rem; /* Khoảng cách giữa ảnh và chú thích */
+}
+
+.image-with-caption .image-caption {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-style: italic;
+    text-align: left; /* Chú thích căn trái theo ảnh */
+    margin: 0; /* Loại bỏ margin mặc định */
+}
+
+/* --- QUAN TRỌNG: CSS CHO ẢNH NỔI BÊN TRÁI --- */
+.image-with-caption.float-left-image {
+    float: left; /* Làm cho khối ảnh nổi sang trái */
+    max-width: 40%; /* Giới hạn chiều rộng của ảnh nổi (có thể điều chỉnh) */
+    margin-right: 1.5rem; /* Khoảng cách giữa ảnh và văn bản bên phải */
+}
+
+/* --- QUAN TRỌNG: CSS CHO ẢNH NỔI BÊN PHẢI --- */
+.image-with-caption.float-right-image {
+    
+    bottom: 0%;
+    float: right; /* Làm cho khối ảnh nổi sang phải */
+    max-width: 40%; /* Giới hạn chiều rộng của ảnh nổi (có thể điều chỉnh) */
+    margin-left: 1.5rem; /* Khoảng cách giữa ảnh và văn bản bên trái */
+}
+
+
+/* Clearfix để đảm bảo các yếu tố sau ảnh nổi không bị lỗi bố cục */
+.clear-float {
+    clear: both; /* Xóa thuộc tính float của các yếu tố phía trên */
+    height: 0; 
+    overflow: hidden; 
+}
+
+
+/* Kiểu dáng cho khối liên kết */
+.links-content h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.links-content ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.links-content li {
+    margin-bottom: 0.5rem;
+}
+
+.links-content a {
+    color: var(--accent-color);
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.links-content a:hover {
+    color: var(--primary-color);
+}
+
+/* Kiểu dáng cho khối chứng nhận */
+.certificate-content h3 {
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.certificate-content .certificate-images-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.certificate-content .certificate-images-wrapper img {
+    width: 100%;
+    max-width: 300px; /* Kiểm soát kích thước của ảnh chứng nhận */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+/* Kiểu dáng cho khối ghi chú/chú thích mũi tên */
+.note-content p {
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .project-detail-container {
+        padding: 0 1rem; /* Giảm padding trên mobile */
+    }
+
+    .project-main-content-area {
+        gap: 1.5rem; /* Giảm gap trên mobile */
+    }
+
+    /* Trên mobile, ảnh nổi nên chiếm 100% và không nổi nữa */
+    .image-with-caption.float-left-image,
+    .image-with-caption.float-right-image {
+        float: none; /* Hủy float */
+        max-width: 100%; /* Chiếm toàn bộ chiều rộng */
+        margin-left: auto; /* Canh giữa */
+        margin-right: auto; /* Canh giữa */
+        text-align: center; /* Canh giữa chú thích */
+        margin-bottom: 1.5rem; /* Khoảng cách dưới ảnh */
+        padding: 0.5rem; /* Giảm padding trên mobile */
+    }
+
+    /* Đảm bảo văn bản vẫn có khoảng cách phù hợp */
+    .text-content p {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .content-heading {
+        font-size: 1.6rem;
+    }
+    .project-name {
+        font-size: 2rem;
+    }
+}
+.back-to-portfolio-link {
+    display: inline-flex; /* Giúp icon và chữ thẳng hàng đẹp hơn */
+    align-items: center;
+    gap: 0.75rem; /* Khoảng cách giữa icon và chữ */
+    margin-top: 4rem; /* Khoảng cách với các nút bên trên */
+    color: var(--text-muted); /* Màu xám nhạt */
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.back-to-portfolio-link i {
+    transition: transform 0.3s ease;
+}
+
+.back-to-portfolio-link:hover {
+    color: var(--primary-color); /* Đổi sang màu xanh đậm khi hover */
+    transform: translateX(-5px); /* Toàn bộ khối dịch sang trái một chút */
+}
+/* Đảm bảo .about-intro-text là phần tử cha có position: relative */
+.about-intro-text {
+    position: relative; /* Rất quan trọng để định vị bubble */
+    /* Điều chỉnh padding-top để tạo không gian cho bubble, nếu cần */
+    padding-top: 30px; /* Thêm khoảng đệm để tiêu đề không bị che */
+    /* Giữ các kiểu dáng khác của about-intro-text nếu có */
+}
+
+.resume-bubble {
+    position: absolute;
+    top: -15px; /* Đẩy lên cao hơn một chút */
+    right: 20px;
+    z-index: 10;
+    
+    /* Màu sắc & Font chữ */
+    background-color: #e74c3c; /* Một màu đỏ tươi hơn */
+    color: #ffffff;
+    padding: 30px 35px; /* Tăng padding để to hơn */
+    border-radius: 50px; /* Bo tròn nhiều hơn cho mềm mại */
+    font-size: 1em; /* Tăng kích thước chữ */
+    font-weight: bold;
+    
+    /* Hiệu ứng nổi bật */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25); /* Bóng đổ sâu và mềm hơn */
+    transform: rotate(-6deg); /* Tăng độ nghiêng */
+    animation: shake 1.5s cubic-bezier(.36,.07,.19,.97) infinite; /* Hiệu ứng rung */
+    transform-origin: bottom right; /* Đặt tâm xoay cho hiệu ứng rung */
+  }
+  
+  /* Định nghĩa animation rung lắc */
+  @keyframes shake {
+    0%, 100% { transform: rotate(-6deg); }
+    50% { transform: rotate(-3deg) translateY(-3px); }
+  }
+
+/* Đảm bảo h2 "About Me" không bị bubble che */
+.about-intro-text h2 {
+    margin-top: 10px; /* Hoặc một giá trị lớn hơn nếu cần */
+}
+
+/* Trong file style.css của bạn */
+
+
+.image-with-caption:not(.float-left-image):not(.float-right-image) {
+    max-width: 800px;
+    margin: 1.5rem auto;
+   
+}
+
+/* Đảm bảo ảnh bên trong khối đó hiển thị đúng kích thước */
+.image-with-caption .project-image {
+    width: 100%; /* Ảnh sẽ lấp đầy chiều rộng của khối cha (.image-with-caption) */
+    height: auto;
+    display: block; 
+}
+
+/* Style cho chú thích */
+.image-with-caption .image-caption {
+    font-size: 0.95rem; /* Điều chỉnh kích thước chữ nếu cần */
+    color: var(--text-color-light, #555);
+    margin-top: 0.8rem; 
+    text-align: center; 
+    font-style: italic; 
+}
+
+/* Đảm bảo .note-content căn giữa toàn bộ khối div */
+.note-content {
+    text-align: center; 
+    margin-top: 2rem; 
+    margin-bottom: 2rem; 
+}
+
+/* Trong file style.css của bạn */
+
+/* Tiêu đề "Links báo chí" */
+.links-content h4 {
+    color: var(--primary-color, #007bff);
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+/* Danh sách các link */
+.links-content ul {
+    list-style: none; /* Bỏ dấu chấm tròn */
+    padding: 0;
+    margin: 0;
+}
+
+/* Định dạng cho mỗi mục danh sách <li> */
+.links-content li {
+    margin-bottom: 1.5rem; /* Tăng khoảng cách giữa các mục */
+    text-align: left; /* Căn trái nội dung */
+}
+
+/* Định dạng cho thẻ <img> trong <li> (ảnh lớn ở trên) */
+.links-content li img {
+    display: block; /* Để chiếm toàn bộ chiều rộng */
+    width: 100%; /* Chiếm 100% chiều rộng của li */
+    height: auto; /* Giữ tỷ lệ khung hình */
+    margin-bottom: 0.5rem; /* Khoảng cách giữa ảnh và link */
+    border-radius: 8px; /* Bo góc ảnh nếu muốn */
+    box-shadow: var(--shadow-sm); /* Thêm bóng nhẹ nếu muốn */
+    object-fit: cover; /* Để ảnh lấp đầy khung (có thể bị cắt bớt) */
+}
+
+/* Định dạng cho thẻ <a> (link) */
+.links-content li a {
+    color: var(--link-color, #007bff);
+    text-decoration: underline;
+    font-weight: 400;
+    display: block; /* Để chiếm toàn bộ dòng bên dưới ảnh */
+}
