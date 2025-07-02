@@ -63,6 +63,31 @@
   .close-btn:hover {
     color: #ccc;
   }
+
+
+  .video-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+}
+
+.youtube-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+}
+
+.youtube-icon img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s;
+}
+
+.youtube-icon img:hover {
+  transform: scale(1.1);
+}
+
   </style>
 </head>
 
@@ -119,10 +144,19 @@
 
                 <div class="about-details-area">
                     <div class="media-column">
-                        <video controls width="100%">
-                            <source src="images/video2.mp4" type="video/mp4">
-
-                        </video>
+                        <div class="video-container">
+                            <!-- Icon YouTube -->
+                            <a href="https://youtu.be/d5rwwLFVG_I" target="_blank" class="youtube-icon" title="Xem trên YouTube">
+                              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" />
+                            </a>
+                          
+                            <!-- Video -->
+                            <video controls width="100%">
+                              <source src="images/video2.mp4" type="video/mp4">
+                              Trình duyệt của bạn không hỗ trợ video.
+                            </video>
+                          </div>
+                          
                         <div class="image-row">
                             <img src="images/ảnh giải tỉnh.jpg" alt="" onclick="openPopup(this.src)">
                             <img src="images/ielts.jpg" alt="" onclick="openPopup(this.src)">
@@ -178,6 +212,7 @@
                                 <span class="skill-tag">Organizing & Planning</span>
                                 <span class="skill-tag">Critical Thinking</span>
                                 <span class="skill-tag">Out of the box</span>
+                                <span class="skill-tag">IELTS: 7.0(2025)</span>
                                 <span class="skill-tag">Adaptability</span>
                                 <span class="skill-tag">Collaboration</span>
                                 <span class="skill-tag">Leadership</span>
