@@ -10,7 +10,113 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
     <link rel="icon" type="image/x-icon" href="images/favicon.jpg">
+<style>.image-facebook-wrapper {
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+  }
+  
+  .image-facebook-wrapper img {
+    display: block;
+    width: 300px; /* hoặc tùy chỉnh theo bố cục của bạn */
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  /* Nút Facebook */
+  .fb-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #1877f2;
+    color: white;
+    border-radius: 50%;
+    padding: 8px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+  
+  .fb-button:hover {
+    background-color: #145dbf;
+    transform: scale(1.1);
+  }
 
+
+  .image-facebook-wrapper {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+}
+
+.image-facebook-wrapper img {
+  display: block;
+  width: 300px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.fb-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #1877f2;
+  color: white;
+  border-radius: 50%;
+  padding: 8px;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.fb-button:hover {
+  background-color: #145dbf;
+  transform: scale(1.1);
+}
+
+
+.image-facebook-wrapper {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+}
+
+.image-facebook-wrapper img {
+  display: block;
+  width: 300px; /* bạn có thể tùy chỉnh theo ý */
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Cho ảnh full width như ảnh 1f */
+.image-facebook-wrapper[style*="width: 100%"] img {
+  width: 100%;
+}
+
+/* Nút Facebook */
+.fb-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #1877f2;
+  color: white;
+  border-radius: 50%;
+  padding: 8px;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.fb-button:hover {
+  background-color: #145dbf;
+  transform: scale(1.1);
+}
+
+
+  </style>
 </head>
 <body>
 
@@ -53,29 +159,77 @@
                 </div>
                 <div class="content-block text-content">
                     <div class="image-with-caption float-left-image">
-                        <img src="images/2f.jpg" alt="Hoạt động chuẩn bị trao học bổng" class="project-image">
-                        <img src="images/7f.png" alt="Hoạt động chuẩn bị trao học bổng" class="project-image">
-                    </div>
+                        <!-- Ảnh 2f.jpg + nút Facebook -->
+                        <div class="image-facebook-wrapper">
+                          <a href="https://www.facebook.com/share/p/14E6tEuLKGp/" target="_blank" class="fb-button">
+                            <i class="fab fa-facebook-f"></i>
+                          </a>
+                          <img src="images/2f.jpg" alt="Hoạt động chuẩn bị trao học bổng" class="project-image">
+                        </div>
+                      
+                        <!-- Ảnh 7f.png + nút Facebook -->
+                        <div class="image-facebook-wrapper">
+                          <a href="https://www.facebook.com/share/p/15uSbgQ8kq/" target="_blank" class="fb-button">
+                            <i class="fab fa-facebook-f"></i>
+                          </a>
+                          <img src="images/7f.png" alt="Hoạt động chuẩn bị trao học bổng" class="project-image">
+                        </div>
+                      </div>
+                      
                     <p>
                         After advancing through a highly competitive selection process with a <strong> 1:7 acceptance rate</strong>, I joined the content team of the project as one of its top candidates. In this role, I conducted in-depth research on literary works and analytical articles, drawing comparisons between themes, motifs, and writing styles to offer fresh and insightful perspectives. My posts consistently achieved strong engagement, <strong>averaging 200 likes per post</strong> . For my contributions, I was honored <strong> twice as the Most Outstanding Member of the Month</strong> for excellence in content creation and active involvement in the community.
 
                     </p>
                     <div class="image-with-caption float-right-image">
-                        <img src="images/3f.jpg" alt="Cảm nhận kết nối với học sinh" class="project-image">
-                        <img src="images/4f.jpg" alt="Cảm nhận kết nối với học sinh" class="project-image">
-                        <!-- <p class="image-caption">Cảm nhận kết nối với học sinh.</p> -->
-                    </div>
+                        <!-- Ảnh 3f.jpg + icon Facebook -->
+                        <div class="image-facebook-wrapper">
+                          <a href="https://www.facebook.com/share/p/16nuYCU7bQ/" target="_blank" class="fb-button">
+                            <i class="fab fa-facebook-f"></i>
+                          </a>
+                          <img src="images/3f.jpg" alt="Cảm nhận kết nối với học sinh" class="project-image">
+                        </div>
+                      
+                        <!-- Ảnh 4f.jpg + icon Facebook -->
+                        <div class="image-facebook-wrapper">
+                          <a href="https://www.facebook.com/share/p/1CjYY8yWj2/" target="_blank" class="fb-button">
+                            <i class="fab fa-facebook-f"></i>
+                          </a>
+                          <img src="images/4f.jpg" alt="Cảm nhận kết nối với học sinh" class="project-image">
+                        </div>
+                      </div>
+                      
                    <P> As a Literature major, I’ve been immersed in an environment that continuously sharpens <strong>my analytical thinking, reasoning, and writing abilities.</strong>  It has also strengthened my skills in <strong>critical thinking, expression, creativity, and research</strong>  — all of which I consider invaluable assets for my future career in <strong>Professional Communication.</strong> 
                 </P>
                       
                 </div>
 
                 <div class="content-block text-content">
-                    <div class="image-with-caption floats-left-image">
-                        <img src="images/5f.jpg" alt="Hoạt động chuẩn bị trao học bổng" class="project-image">
-                        <img src="images/6f.jpg" alt="Hoạt động chuẩn bị trao học bổng" class="project-image">
-                        <img style="width: 100%;" src="images/1f.jpg" alt="">
-                    </div>
+                    <<div class="image-with-caption floats-left-image">
+                        <!-- Ảnh 5f.jpg + icon Facebook -->
+                        <div class="image-facebook-wrapper">
+                          <a href="https://www.facebook.com/share/p/19x6ANEsXY/" target="_blank" class="fb-button">
+                            <i class="fab fa-facebook-f"></i>
+                          </a>
+                          <img src="images/5f.jpg" alt="Hoạt động chuẩn bị trao học bổng" class="project-image">
+                        </div>
+                      
+                        <!-- Ảnh 6f.jpg + icon Facebook -->
+                        <div class="image-facebook-wrapper">
+                          <a href="https://www.facebook.com/share/p/16hyt1tGEY/" target="_blank" class="fb-button">
+                            <i class="fab fa-facebook-f"></i>
+                          </a>
+                          <img src="images/6f.jpg" alt="Hoạt động chuẩn bị trao học bổng" class="project-image">
+                        </div>
+                      
+                        <!-- Ảnh 1f.jpg + icon Facebook -->
+                        <div class="image-facebook-wrapper" style="width: 100%;">
+                          <a href="https://www.facebook.com/photo?fbid=1023329002877328&set=a.257047016172201" target="_blank" class="fb-button">
+                            <i class="fab fa-facebook-f"></i>
+                          </a>
+                          <img style="width: 100%;" src="images/1f.jpg" alt="Ảnh 1">
+                        </div>
+                      </div>
+                      
                     <div class="clear-float"></div>
                 </div>
 
